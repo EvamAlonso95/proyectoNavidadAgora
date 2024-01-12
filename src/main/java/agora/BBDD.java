@@ -89,8 +89,7 @@ public class BBDD {
 		// ResulSet
 		ResultSet result = execQuery(query);
 		try {
-			// Verificar si hay al menos una fila en el resultado, lo que indica que el
-			// usuario es válido
+			// Verificar si hay al menos una fila en el resultado, lo que indica que el usuario es válido
 			if (result.next()) {
 				return true;
 			}

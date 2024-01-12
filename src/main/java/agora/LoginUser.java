@@ -37,15 +37,9 @@ public class LoginUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Obtiene el valor del parámetro "username" de la solicitud POST.
-		String username = request.getParameter("username");
-
-		// Obtiene el valor del parámetro "password" de la solicitud POST.
+		
+		String username = request.getParameter("username");		
 		String password = request.getParameter("password");
-
-		String age = request.getParameter("age");
-
-		String idLocation = request.getParameter("idLocation");
 
 		// Llama al método isValidUser de la clase BBDD para verificar si el usuario es
 		// válido

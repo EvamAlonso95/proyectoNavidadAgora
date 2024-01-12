@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="charset=UTF-8">
+		<meta charset="UTF-8">
 		<title>Update Event</title>
 	</head>
 	<body>
@@ -25,7 +25,7 @@
 
 		String secretToken = request.getParameter("st");
 		String idUser = BBDD.getIdUserByST(secretToken);
-		System.out.println(rsEvent.getString(1));
+		
 		%>
 		
 		<form action="http://localhost:8080/agora/updateEvent" method="post">

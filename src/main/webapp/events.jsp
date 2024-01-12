@@ -80,6 +80,11 @@
 	<!-- request de la pagina en la que estoy (es como la url) -->
 		<a  href="http://localhost:8080/agora/newEvent.jsp?st=<%=secretToken%>">
 			Crear evento
+		</a><br>
+		
+		
+		<a href="http://localhost:8080/agora/"> 
+			Salir de Ágora 
 		</a>
 	</body>
 	

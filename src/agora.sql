@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 02-01-2024 a las 15:51:22
+-- Tiempo de generación: 24-12-2023 a las 14:32:11
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -38,17 +38,23 @@ CREATE TABLE IF NOT EXISTS `event` (
   PRIMARY KEY (`idEvent`),
   KEY `idUser` (`idUser`),
   KEY `idLocation` (`idLocation`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `event`
 --
 
 INSERT INTO `event` (`idEvent`, `idUser`, `idLocation`, `name`, `dateTime`, `description`) VALUES
-(16, 8, 3, 'Juegos de mesa', '2024-01-07 11:30:00', 'Juegos de mesa en el bar del pueblo'),
-(18, 9, 1, 'Patinaje sobre hielo', '2024-01-09 18:30:00', 'Patinar en la nueva pista del poli'),
-(19, 7, 6, 'Plan bolera', '2024-01-02 20:09:00', 'Ir a la bolera con los colegas'),
-(20, 10, 7, 'Chocolate', '2024-01-19 17:30:00', 'Tomar chocolate con churros');
+(1, 2, 2, 'Patinar', '2023-12-16 16:29:41', 'Ir al polideportivo a patinar'),
+(2, 2, 3, 'Cine', '2023-12-21 18:00:00', 'Ir al cine a ver la peli Wonka'),
+(4, 2, 1, 'comer con la familia', '2024-01-05 13:29:00', 'comer con la familia'),
+(6, 2, 2, 'Leer en cafetería', '2023-12-21 16:13:00', 'Leer en la cafeteria\r\n'),
+(7, 2, 1, 'Juegos de mesa', '2023-12-30 21:18:00', 'Jugar a juegos de mensa'),
+(8, 2, 2, 'Taller de poesía', '2023-12-18 16:21:00', 'Taller de poesia al aire libre'),
+(9, 2, 1, 'Cena de Navidad', '2023-12-24 18:01:00', 'Cenar para Navidad'),
+(10, 2, 1, 'Pipas', '2023-12-26 12:48:00', 'Quedar para comer pipas'),
+(11, 2, 2, 'Comer', '2024-01-05 15:43:00', 'comer con la familia'),
+(12, 2, 1, 'Alpinismo', '2023-12-27 08:48:00', 'alpinismo');
 
 -- --------------------------------------------------------
 
@@ -61,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   `idLocation` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`idLocation`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `location`
@@ -70,15 +76,7 @@ CREATE TABLE IF NOT EXISTS `location` (
 INSERT INTO `location` (`idLocation`, `name`) VALUES
 (1, 'Alcobendas'),
 (2, 'San Sebastián de los Reyes'),
-(3, 'Alcorcón'),
-(4, 'Getafe'),
-(5, 'Torrejón de Ardoz'),
-(6, 'Algete'),
-(7, 'Barajas'),
-(8, 'Madrid Capital'),
-(9, 'Villaverde'),
-(10, 'Parla'),
-(11, 'Tres Cantos');
+(3, 'Alcorcón');
 
 -- --------------------------------------------------------
 
@@ -94,20 +92,22 @@ CREATE TABLE IF NOT EXISTS `participants` (
   PRIMARY KEY (`idParticipants`),
   KEY `idUser` (`idUser`),
   KEY `idEvent` (`idEvent`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `participants`
 --
 
 INSERT INTO `participants` (`idParticipants`, `idUser`, `idEvent`) VALUES
-(22, 8, 16),
-(25, 9, 16),
-(27, 9, 18),
-(28, 7, 18),
-(29, 7, 19),
-(30, 10, 19),
-(31, 10, 20);
+(1, 2, 10),
+(2, 3, 10),
+(3, 3, 10),
+(4, 3, 10),
+(5, 3, 9),
+(6, 3, 1),
+(7, 2, 2),
+(8, 2, 12),
+(9, 2, 11);
 
 -- --------------------------------------------------------
 
@@ -125,17 +125,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `idLocation` int NOT NULL,
   PRIMARY KEY (`idUser`),
   KEY `idLocation` (`idLocation`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
 INSERT INTO `user` (`idUser`, `name`, `password`, `age`, `secretToken`, `idLocation`) VALUES
-(7, 'eva', 'eva', '28', '45dc0136-2e6d-441c-ba13-e4835cea2fcf', 1),
-(8, 'bob', 'bob', '24', '05a0d3bc-4384-435a-9a22-ad954fe1e6d3', 3),
-(9, 'ana', 'ana', '30', '9709a420-a1f1-4d87-a0a6-f357bda9a039', 5),
-(10, 'nuria', 'nuria', '20', '61a3e226-9908-4881-ba02-9eae96ca0174', 7);
+(2, 'eva', 'eva', '28', '12345679076', 1),
+(3, 'Axel', 'axel', '26', 'asdfg', 1);
 
 --
 -- Restricciones para tablas volcadas

@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="agora.*"%>
-<!-- Establecemos el lenguaje de la página JAVAm especificamos que la pág es HTML con codificación UFT-8-->
-<!-- Esto define el tipo de documento (DOCTYPE) como HTML5, indicando que la página sigue la especificación de HTML5-->
+<!-- Establecemos el lenguaje de la página JAVA especificamos que la pág es HTML con codificación UFT-8-->
+<!-- Esto define el tipo de documento (DOCTYPE) como HTML5-->
 
 <!DOCTYPE html>
 
@@ -14,9 +14,13 @@
 	
 	<body>
 		<h3>Register</h3>
-
+			
+			<!-- Formulario que envía los datos al servidor. -->
+			<!--El atributo action especifica la URL a dónde se envían y el método post es cómo se envían los datos-->
+			
 			<form action="http://localhost:8080/agora/registerNewUser" method="post">
-
+			
+				<!--  Etiqueta para asociar un texto con un campo de entrada al clickar -->
 				<label>
 					 Usuario: 
 					<input type="text" name="username" required	placeholder="Usuario1" />
@@ -55,13 +59,10 @@
 				<input type="submit" name="Enviar" />
 			</form>
 		
-		<h3>Log in</h3>
-	
-		<!-- Formulario que envía los datos al servidor. -->
-		<!--El atributo action especifica la URL a dónde se envían y el método post es cómo se envían los datos-->
+		<h3>Log in</h3>		
 	
 			<form action="http://localhost:8080/agora/loginUser" method="post">
-				<!--  Etiqueta para asociar un texto con un campo de entrada -->
+				
 				<label> 
 					Usuario: 
 					<input type="text" name="username" required	placeholder="Usuario1" />

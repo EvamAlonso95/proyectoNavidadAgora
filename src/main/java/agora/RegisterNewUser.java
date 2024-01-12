@@ -26,13 +26,23 @@ public class RegisterNewUser extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//codifica los caracteres para que sean tildes y no caracteres extraños
+		request.setCharacterEncoding("UTF-8");
+		
+		// Obtiene el valor del parámetro "username" de la solicitud POST y se guarda en la variable username
 		String username = request.getParameter("username");
+		
+		// Obtiene el valor del parámetro "password" de la solicitud POST y se guarda en la variable password
 		String password = request.getParameter("password");
+		
+		// Obtiene el valor del parámetro "age" de la solicitud POST y se guarda en la variable age
 		String age = request.getParameter("age");
+		
+		// Obtiene el valor del parámetro "idLocation" de la solicitud POST y se guarda en la variable idLocation
 		String idLocation = request.getParameter("idLocation");
 
 		// https://stackoverflow.com/questions/1389736/how-do-i-create-a-unique-id-in-java
+		//Creamos un numero que sirva como identificador unico del usuario para saber si está logeado correctamente
 		String secretToken = UUID.randomUUID().toString();
 		BBDD.generateNewUser(username, password, age, idLocation, secretToken);
 
