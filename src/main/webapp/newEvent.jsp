@@ -17,6 +17,7 @@
 				<input type="text" name="nameEvent" required placeholder="Plan de bolera"/>
 			</label>
 			<%
+				
 				ResultSet rs = null;
 				try{
 					rs = BBDD.getLocations();

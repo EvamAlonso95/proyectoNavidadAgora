@@ -30,6 +30,7 @@ public class UpdateEvent extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		// doGet(request,response);
 		String eventName = request.getParameter("name");
@@ -45,10 +46,13 @@ public class UpdateEvent extends HttpServlet {
 		String idUser = BBDD.getIdUserByST(secretTokenUser);
 
 		String idEvent = request.getParameter("idEvent");
-
+		
+		
+		
 		BBDD.updateEvent(idEvent, eventName, eventLocation, eventDate, eventDescription);
 		
-	
+		
+		
 		response.sendRedirect(request.getContextPath() + "/events.jsp?st=" + secretTokenUser);		
 		
 	}

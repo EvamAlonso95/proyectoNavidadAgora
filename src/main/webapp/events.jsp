@@ -11,7 +11,7 @@
 	
 	<body>
 
-		<h1>ESTOY EN EVENTOS</h1>
+		<h1>EVENTOS</h1>
 		<%
 		//La query de pedir todos los eventos se guarda en un ResulSet rs
 		ResultSet rs = null;
@@ -47,7 +47,7 @@
 					<td><%=rs.getString("nameLocation")%></td>
 					<td><%=rs.getString("dateTime")%></td>
 					<td><%=rs.getString("description")%></td>
-					<td><%=BBDD.getPaticipantsByEvent(idEvent)%></td>
+					<td><%=BBDD.getParticipantsByEvent(idEvent)%></td>
 					<td>
 						<%if (BBDD.isUserInEvent(idEvent, idUser) == false) {%> 
 							<a href="http://localhost:8080/agora/addParticipant?st=<%=secretToken%>&idEvent=<%=idEvent%>">

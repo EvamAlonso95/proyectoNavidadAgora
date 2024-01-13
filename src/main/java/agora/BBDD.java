@@ -56,8 +56,8 @@ public class BBDD {
 		return null;
 	}
 
-	//Inserta en la bbdd y devuelve el id nuevo
-	private static String insertUpdateQuery(String query) { 
+	//Ejecuta una consulta (insert o update) y devuelve el primer elemento (primary key, el id) del evento creado, eliminado o editado
+	private static String executeInsertUpdateAndGetGeneratedKey(String query) { 
 		try {
 
 			Statement statement = connectBBDD();
@@ -158,18 +158,18 @@ public class BBDD {
 		String query = "INSERT INTO event (idUser,name,idLocation,dateTime,description)	VALUES ('" + idUser + "','"
 				+ eventName + "','" + eventLocation + "','" + eventDate + "','" + eventDescription + "');";
 
-		return insertUpdateQuery(query);
+		return executeInsertUpdateAndGetGeneratedKey(query);
 	}
 	
 	
 	// añade el usuario a un evento
 	public static String addParticipantToEvent(String idUser, String idEvent) { 
 		String query = "INSERT INTO participants (idUser,idEvent)	VALUES ('" + idUser + "','" + idEvent + "');";
-		return insertUpdateQuery(query);
+		return executeInsertUpdateAndGetGeneratedKey(query);
 	}
 
 	// Obtienes los participantes de un evento
-	public static String getPaticipantsByEvent(String idEvent) { 
+	public static String getParticipantsByEvent(String idEvent) { 
 		String query = "SELECT COUNT(*) AS aforo FROM participants WHERE idEvent ='" + idEvent + "';";
 		ResultSet rs = execQuery(query);
 		try {
@@ -206,13 +206,13 @@ public class BBDD {
 	public static String updateEvent(String idEvent, String eventName, String eventLocation, String eventDate,String eventDescription) {
 		String query = "UPDATE event SET idLocation= '" + eventLocation + "',name='" + eventName + "', dateTime= '"
 				+ eventDate + "',description='" + eventDescription + "' WHERE idEvent=" + idEvent + ";";
-		return insertUpdateQuery(query);
+		return executeInsertUpdateAndGetGeneratedKey(query);
 	}
 
 	// Elimina un evento
 	public static void deleteEvent(String idEvent) { 
 		String query = "DELETE FROM event WHERE idEvent=" + idEvent + ";";
-		insertUpdateQuery(query);
+		executeInsertUpdateAndGetGeneratedKey(query);
 
 	}
 
@@ -240,6 +240,6 @@ public class BBDD {
 		String query = "INSERT INTO user (name,password,age,idLocation,secretToken) VALUES ('" + username + "','"
 				+ password + "','" + age + "','" + idLocation + "','" + secretToken + "');";
 		System.out.println(query);
-		return insertUpdateQuery(query);
+		return executeInsertUpdateAndGetGeneratedKey(query);
 	}
 }

@@ -40,7 +40,7 @@
 			<%
 			ResultSet rsLocation = null;
 			try {
-				rsLocation = BBDD.getLocations();//['alcobebdas,guadalajara']
+				rsLocation = BBDD.getLocations();
 			} catch (Exception e) {
 			}
 			%>
